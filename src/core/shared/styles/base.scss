@@ -1,0 +1,28 @@
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply text-[clamp(12px,4vw,16px)];
+  }
+  body{
+    @apply bg-background text-white
+  }
+
+  :root{
+    --color-primary: #FACE8D;
+    --color-secondary: #F8D49E;
+    --color-background: #050505;
+    --color-dark: #081212;
+    --color-white: #FFFFFF;
+    --color-white-80: #FFFFFFcc;
+    --color-white-10: #FFFFFF1a;
+
+    --border-radius-6: 6px;
+    --border-radius-10: 10px;
+    --border-radius-16: 16px;
+    --border-radius-100: 100px;
+    --border-radius-500: 500px;
+  }
+}

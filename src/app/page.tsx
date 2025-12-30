@@ -1,4 +1,9 @@
 import Image from "next/image";
+import {TitleUi} from "@/core/shared/ui/title";
+import {SubTitleUi} from "@/core/shared/ui/sub-title";
+import { PrimaryButtonUI } from '@/core/shared/ui/primary-button'
+import { IconUI } from '@/core/shared/ui/icons'
+
 
 export default function Home() {
   return (
@@ -12,6 +17,21 @@ export default function Home() {
           height={38}
           priority
         />
+        <TitleUi size='xl'  as='h1'>
+            Thailand
+        </TitleUi>
+          <SubTitleUi size='xl' as={'h2'} >
+              Contacts
+          </SubTitleUi>
+        <PrimaryButtonUI variant={'primary'}>
+          book a table
+        </PrimaryButtonUI>
+        <IconUI variant='leaflet' />
+        <IconUI variant={'facebook'}  />
+        <IconUI variant={'watch'} />
+        <IconUI variant={'twitter'} />
+        <IconUI variant={'instagram'} />
+
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}

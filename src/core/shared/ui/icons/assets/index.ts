@@ -1,0 +1,5 @@
+export {default as IconFacebook} from './facebook.svg'
+export {default as IconInstagram} from './instagram.svg'
+export {default as IconTwitter} from './twitter.svg'
+export {default as IconWatch} from './watch.svg'
+export {default as IconLeaflet} from './leaflet.svg'
