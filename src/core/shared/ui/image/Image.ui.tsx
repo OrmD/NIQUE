@@ -23,7 +23,7 @@ const ImageUi: FC<IImageProps> = ({
                                     fill,
                                     withSkeleton = true,
                                     imageClassName,
-                                    placeholder = 'blur',
+                                    // placeholder = 'blur',
                                     skeletonClassName,
                                     inView = true,
                                     fetchpriority,
@@ -53,7 +53,7 @@ const ImageUi: FC<IImageProps> = ({
         alt={alt || 'image'}
         fill={fill}
         fetchPriority={fetchpriority ?? 'high'}
-        placeholder={placeholder}
+        // placeholder={placeholder}
         onLoad={() => setIsLoaded(true)}
         onError={() => setError(true)}
         className={cn(

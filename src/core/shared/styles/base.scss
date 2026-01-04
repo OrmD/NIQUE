@@ -4,10 +4,13 @@
   }
 
   html {
-    @apply text-[clamp(12px,4vw,16px)];
+    @apply text-[clamp(12px,4vw,16px)] h-full;
   }
-  body{
-    @apply bg-background text-white
+  body {
+    @apply bg-background text-white h-full
+  }
+  main{
+    @apply h-full
   }
 
   :root{

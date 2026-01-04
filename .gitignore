@@ -31,7 +31,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
 
 # vercel
 .vercel
@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+yarn.lock
+package.lock
+
+# .idea
+.idea/*
+!.idea/fileTemplates/
+!.idea/eslint.xml
+!.idea/file.template.settings.xml
+!.idea/prettier.xml
+
+# storybook
+*storybook.log
+storybook-static
+
+# caches
+*~

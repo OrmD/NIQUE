@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import '@/core/shared/styles/index.scss'
 import {primaryFont} from "@/core/shared/fonts";
+import { NextIntlClientProvider } from 'next-intl'
 
 
 
@@ -15,13 +16,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <NextIntlClientProvider>
+
+    <html lang="en" suppressHydrationWarning>
       <body
         className={primaryFont.className}
       >
         {children}
       </body>
     </html>
+    </NextIntlClientProvider>
   );
 }
 

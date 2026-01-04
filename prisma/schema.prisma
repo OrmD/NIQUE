@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Pages {
+  id   Int    @id @default(autoincrement())
+  name String
+  slug String @unique
+
+  title           String?
+  sub_title       String?
+  description     String?
+  seo_title       String?
+  seo_description String?
+
+  images Images[]
+  navbar Navbar[]
+}
+
+model Images {
+  id       Int     @id @default(autoincrement())
+  atribute String?
+  src      String?
+
+  pages Pages[]
+
+  classes Classes[]
+}
+
+model Navbar {
+  id    Int    @id @default(autoincrement())
+  title String
+
+  pageId Int?
+  link   Pages? @relation(fields: [pageId], references: [id])
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+
+  name     String?
+  products Product[]
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+
+  title           String?
+  description     String?
+  price           Decimal
+  discountedPrice Decimal?
+  vegan           Boolean  @default(false)
+
+  categoryId Int
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  classeeId Int
+  classes   Classes? @relation(fields: [classeeId], references: [id])
+}
+
+model Classes {
+  id           Int       @id @default(autoincrement())
+  title        String?
+  classes_name String?
+  date         DateTime?
+  link         String?
+
+  description String?
+  price       Decimal
+  language    String?
+  location    String?
+
+  imageId Int
+  image   Images @relation(fields: [imageId], references: [id])
+
+  products Product[]
+
+  teacherId Int
+  teacher   Teachers @relation(fields: [teacherId], references: [id])
+}
+model Teachers {
+  id          Int     @id @default(autoincrement())
+  teacher     String?
+  img         String?
+  description String?
+
+  instagram String?
+  facebook  String?
+  twiter    String?
+
+  classes Classes[]
+}
+
+model Tabels {
+  id Int @id @default(autoincrement())
+
+  max_count_people Int
+
+  customer_name String?
+  count_guest   Int?
+  date          DateTime?
+  time          String?
+  createdAt     DateTime  @default(now())
+
+  ordered Boolean @default(false)
+}
+
+model ContactRequest {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String?
+  email     String?
+  message   String?
+  createdAt DateTime @default(now())
+}
+
+model Blog {
+  id          Int     @id @default(autoincrement())
+  date        String?
+  title       String?
+  short_desc  String?
+  description String?
+  image       String?
+}

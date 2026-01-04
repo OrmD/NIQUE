@@ -2,6 +2,7 @@ import {ComponentProps, ElementType, FC, memo} from "react";
 import { titleMap, TSize } from './variant-size.styles'
 import cn from "@/core/shared/utils/cn";
 import { useSize } from '@/core/shared/hooks/use-size.service';
+import { useTranslations } from 'next-intl'
 
 
 interface ITitleProps extends ComponentProps<any> {
@@ -19,12 +20,13 @@ const TitleUi: FC<ITitleProps> = ({
     ...otherProps
 })=>{
 
+  const t = useTranslations("_.save_variant")
     const currentSize = useSize({size, map: titleMap})
     const Tag = Component || 'h2'
 
     return (
-        <Tag className={cn(currentSize?.className,' font-medium !text-white',className)} {...otherProps}>
-            {children}
+        <Tag className={cn(currentSize?.className,' font-medium !text-white text-center',className)} {...otherProps}>
+            {children ? children : t("title")}
         </Tag>
     )
 }
