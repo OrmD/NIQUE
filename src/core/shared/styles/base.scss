@@ -4,23 +4,23 @@
   }
 
   html {
-    @apply text-[clamp(12px,4vw,16px)] h-full;
+    @apply h-full text-[clamp(12px,4vw,16px)];
   }
   body {
-    @apply bg-background text-white h-full
+    @apply h-full bg-background text-white;
   }
-  main{
-    @apply h-full
+  main {
+    @apply h-full;
   }
 
-  :root{
-    --color-primary: #FACE8D;
-    --color-secondary: #F8D49E;
+  :root {
+    --color-primary: #face8d;
+    --color-secondary: #f8d49e;
     --color-background: #050505;
     --color-dark: #081212;
-    --color-white: #FFFFFF;
-    --color-white-80: #FFFFFFcc;
-    --color-white-10: #FFFFFF1a;
+    --color-white: #ffffff;
+    --color-white-80: #ffffffcc;
+    --color-white-10: #ffffff1a;
 
     --border-radius-6: 6px;
     --border-radius-10: 10px;

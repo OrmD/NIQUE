@@ -1,6 +1,6 @@
-import { IconFacebook, IconInstagram, IconLeaflet, IconTwitter, IconWatch } from '../assets'
 import { FC, SVGProps, useMemo } from 'react'
 
+import { IconFacebook, IconInstagram, IconLeaflet, IconTwitter, IconWatch } from '../assets'
 
 export enum EVariant {
   INSTAGRAM = 'instagram',
@@ -12,7 +12,7 @@ export enum EVariant {
 
 export type TVariant = (typeof EVariant)[keyof typeof EVariant] | string
 
-interface IUseVariantProps{
+interface IUseVariantProps {
   variant: TVariant
 }
 
@@ -21,37 +21,42 @@ interface IUseVariantReturn {
   icon: FC<SVGProps<SVGElement>>
 }
 
- const map = new Map<TVariant, { className: string; icon: FC<SVGProps<SVGElement>> }>([
+const map = new Map<TVariant, { className: string; icon: FC<SVGProps<SVGElement>> }>([
   [
     EVariant.FACEBOOK,
     {
-      className: 'h-5 text-white', icon: IconFacebook
-    }
+      className: 'h-5 text-white',
+      icon: IconFacebook,
+    },
   ],
   [
     EVariant.INSTAGRAM,
     {
-      className: 'h-5 text-white', icon: IconInstagram
-    }
+      className: 'h-5 text-white',
+      icon: IconInstagram,
+    },
   ],
   [
     EVariant.TWITTER,
     {
-      className: 'h-5 text-white', icon: IconTwitter
-    }
+      className: 'h-5 text-white',
+      icon: IconTwitter,
+    },
   ],
   [
     EVariant.WATCH,
     {
-      className: 'h-4  ', icon: IconWatch
-    }
+      className: 'h-4  ',
+      icon: IconWatch,
+    },
   ],
   [
     EVariant.LEAFLET,
     {
-      className: 'h-3 text-primary', icon: IconLeaflet
-    }
-  ]
+      className: 'h-3 text-primary',
+      icon: IconLeaflet,
+    },
+  ],
 ])
 
 export const useVariant = ({ variant }: IUseVariantProps): IUseVariantReturn | null => {

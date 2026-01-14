@@ -1,1 +1,1 @@
-export {default as IconUI} from  './icon.ui'
+export { default as IconUI } from './icon.ui'

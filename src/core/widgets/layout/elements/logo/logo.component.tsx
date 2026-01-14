@@ -1,0 +1,41 @@
+'use client'
+
+import { FC } from 'react'
+import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
+
+import cn from '@/core/shared/utils/cn'
+
+interface ILogoComponentProps {
+  className?: string
+}
+
+const animateStyle = {
+  hidden: {
+    y: -100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+}
+
+const LogoComponent: FC<ILogoComponentProps> = ({ className }) => {
+  const t = useTranslations('_')
+  return (
+    <motion.div
+      className={cn('w-full text-center text-32s font-medium', className)}
+      initial='hidden'
+      animate='visible'
+      variants={animateStyle}
+      transition={{
+        type: 'tween',
+        duration: 0.8,
+      }}
+    >
+      <h3>{t('logo')}</h3>
+    </motion.div>
+  )
+}
+export default LogoComponent

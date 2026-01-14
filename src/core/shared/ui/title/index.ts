@@ -1,1 +1,1 @@
-export {default as TitleUi} from './title.ui'
+export { default as TitleUi } from './title.ui'

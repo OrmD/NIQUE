@@ -27,6 +27,14 @@ export default {
           },
         border: 'var(--color-white-10)',
       },
+      maxWidth:{
+        vw: '[100vw]',
+        '50vw': '[50vw]',
+      },
+      maxHeight:{
+        vh: '[100vh]',
+        '50vh': '[50vh]',
+      },
 
       fontSize: {
           sm: '14px',

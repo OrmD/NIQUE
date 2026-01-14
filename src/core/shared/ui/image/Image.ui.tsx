@@ -17,18 +17,18 @@ interface IImageProps extends Omit<ComponentProps<typeof Image>, 'src' | 'alt'> 
 }
 
 const ImageUi: FC<IImageProps> = ({
-                                    className,
-                                    src,
-                                    alt,
-                                    fill,
-                                    withSkeleton = true,
-                                    imageClassName,
-                                    // placeholder = 'blur',
-                                    skeletonClassName,
-                                    inView = true,
-                                    fetchpriority,
-                                    ...props
-                                  }) => {
+  className,
+  src,
+  alt,
+  fill,
+  withSkeleton = true,
+  imageClassName,
+  // placeholder = 'blur',
+  skeletonClassName,
+  inView = true,
+  fetchpriority,
+  ...props
+}) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [error, setError] = useState(false)
 
