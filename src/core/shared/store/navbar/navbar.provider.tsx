@@ -32,7 +32,7 @@ export const NavBarStoreProvider = ({ initialData, children }: INavBarStoreProvi
 export const useNavBarStore = <T,>(selector: (store: TNavBarStore) => T): T => {
   const counterStoreContext = useContext(NavBarStoreContext)
   if (!counterStoreContext) {
-    throw new Error(`useLayoutStore must be used within LayoutStoreProvider`)
+    throw new Error(`useNavBarStore must be used within NavBarStoreProvider`)
   }
 
   return useStore(counterStoreContext, selector)

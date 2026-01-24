@@ -7,7 +7,7 @@ import { useCarousel } from '../carrousel-context'
 import { usePosition } from './services/use-position.service'
 
 import { ArrowButtonUi } from '@/core/shared/ui/buttons/arrow-button'
-import { TPosition } from '@/core/shared/ui/carrousels/carrousel/elements/carousel-previous/services/use-position.service'
+import { TPosition } from '@/core/shared/ui/carrousels/carrousel/elements/carousel-previous/api/use-position.service'
 import cn from '@/core/shared/utils/cn'
 
 interface ICarouselNextComponent extends ComponentProps<typeof ArrowButtonUi> {

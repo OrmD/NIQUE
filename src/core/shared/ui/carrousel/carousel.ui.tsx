@@ -4,10 +4,10 @@ import { forwardRef, HTMLAttributes, memo, useCallback, useEffect, useState } fr
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 
+import { CarrouselContext } from './elements/carrousel-context'
 import { ICarouselApi, ICarouselProps } from './types'
 
 import { cn } from '@/core/shared/utils/cn'
-import { CarrouselContext } from './elements/carrousel-context'
 
 const CarouselUi = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & ICarouselProps>(
   (

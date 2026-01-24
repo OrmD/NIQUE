@@ -83,6 +83,7 @@ model Classes {
   teacherId Int
   teacher   Teachers @relation(fields: [teacherId], references: [id])
 }
+
 model Teachers {
   id          Int     @id @default(autoincrement())
   teacher     String?
@@ -96,18 +97,33 @@ model Teachers {
   classes Classes[]
 }
 
-model Tabels {
-  id Int @id @default(autoincrement())
-
+model Tables {
+  id               Int @id @default(autoincrement())
+  table_number     Int @unique
   max_count_people Int
 
-  customer_name String?
-  count_guest   Int?
-  date          DateTime?
-  time          String?
-  createdAt     DateTime  @default(now())
+  orders Orders[]
+}
 
-  ordered Boolean @default(false)
+model FreeHours {
+  id     Int     @id @default(autoincrement())
+  day    String?
+  hours  String?
+  closed Boolean @default(false)
+}
+
+model Orders {
+  id           Int      @id @default(autoincrement())
+  customerName String?
+  count_guest  Int?
+  createdAt    DateTime @default(now())
+
+  tableId Int
+  table   Tables @relation(fields: [tableId], references: [id])
+
+  day String?
+
+  hour String?
 }
 
 model ContactRequest {

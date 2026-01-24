@@ -4,7 +4,11 @@
   "logo": "nique.",
     "save_variant": {
       "title": "Thailand",
-      "sub_title": "The pure taste of"
-    }
+      "sub_title": "The pure taste of",
+      "open_hours_alert": "Opening hours are subject to change..."
+    },
+    "open_hours": "Opening Hours",
+    "closed": "closed"
+
   }
 }

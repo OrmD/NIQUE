@@ -25,6 +25,9 @@ export default {
           background: {
               DEFAULT: 'var(--color-background)',
           },
+        gray:{
+          DEFAULT: 'var(--color-gray-hover)',
+        },
         border: 'var(--color-white-10)',
       },
       maxWidth:{
@@ -66,6 +69,20 @@ export default {
             desktop: '1440px',
             large: '1600px',
         },
+      keyframes:{
+        slideBottomToTop: {
+          '0%': { transform: 'translateY(10%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideTopToBottom: {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateY(10%)', opacity: '0' },
+        },
+      },
+      animation: {
+        slideBottomToTop: 'slideBottomToTop 0.5s ease-in-out forwards',
+        slideTopToBottom: 'slideTopToBottom 0.4s ease-out forwards',
+      }
     },
   },
   plugins: [],

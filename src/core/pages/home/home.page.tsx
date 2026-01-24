@@ -1,4 +1,5 @@
 'use client'
+
 import { FC } from 'react'
 
 import { usePageStore } from '@/core/shared/store/page/page.provider'

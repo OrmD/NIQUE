@@ -23,7 +23,7 @@ const Page: FC<IPageProps> = async ({ params }) => {
   if (page === null || undefined) {
     return null
   }
-  console.log('pageData:', page)
+
   return (
     <PageStoreProvider
       initialData={{

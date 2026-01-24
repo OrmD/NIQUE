@@ -1,4 +1,3 @@
-import { DependencyList } from 'react'
 import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react'
 
 export type ICarouselApi = UseEmblaCarouselType[1]

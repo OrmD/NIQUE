@@ -1,9 +1,11 @@
+import { FreeHours } from '@prisma/client'
 import { createStore } from 'zustand/vanilla'
 
 import { TNavBarPrismaApi } from '@/core/shared/types/api'
 
 export interface INavBarStoreState {
-  initialState: TNavBarPrismaApi
+  navbar: TNavBarPrismaApi
+  openHours: FreeHours[]
 }
 
 interface INavBarStoreActions {}
