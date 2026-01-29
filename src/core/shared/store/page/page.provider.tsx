@@ -25,7 +25,7 @@ export const PageStoreProvider = ({ initialData, children }: IPageStoreProviderP
 export const usePageStore = <T,>(selector: (store: TPageStore) => T): T => {
   const counterStoreContext = useContext(PageStoreContext)
   if (!counterStoreContext) {
-    throw new Error(`useLayoutStore must be used within LayoutStoreProvider`)
+    throw new Error(`usePageStore must be used within PageStoreProvider`)
   }
 
   return useStore(counterStoreContext, selector)

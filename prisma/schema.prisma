@@ -50,17 +50,72 @@ model Category {
 model Product {
   id Int @id @default(autoincrement())
 
-  title           String?
+  title           String
   description     String?
+  image           String?
   price           Decimal
   discountedPrice Decimal?
   vegan           Boolean  @default(false)
+  bestOfTheDay    Boolean  @default(false)
 
-  categoryId Int
+  categoryId Int?
   category   Category? @relation(fields: [categoryId], references: [id])
 
-  classeeId Int
+  classeeId Int?
   classes   Classes? @relation(fields: [classeeId], references: [id])
+
+  items OrderItem[]
+}
+
+model ContactRequest {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String?
+  email     String?
+  message   String?
+  createdAt DateTime @default(now())
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+
+  contactOrderId Int?
+  contactOrder   ContactRequest? @relation(fields: [contactOrderId], references: [id])
+
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+
+  quantity Int
+}
+
+model Tables {
+  id               Int @id @default(autoincrement())
+  table_number     Int @unique
+  max_count_people Int
+
+  orders Orders[]
+}
+
+model FreeHours {
+  id     Int     @id @default(autoincrement())
+  day    String?
+  hours  String?
+  closed Boolean @default(false)
+}
+
+model Orders {
+  id           Int      @id @default(autoincrement())
+  customerName String?
+  count_guest  Int?
+  createdAt    DateTime @default(now())
+
+  tableId Int
+  table   Tables @relation(fields: [tableId], references: [id])
+
+  day  String?
+  hour String?
 }
 
 model Classes {
@@ -95,44 +150,6 @@ model Teachers {
   twiter    String?
 
   classes Classes[]
-}
-
-model Tables {
-  id               Int @id @default(autoincrement())
-  table_number     Int @unique
-  max_count_people Int
-
-  orders Orders[]
-}
-
-model FreeHours {
-  id     Int     @id @default(autoincrement())
-  day    String?
-  hours  String?
-  closed Boolean @default(false)
-}
-
-model Orders {
-  id           Int      @id @default(autoincrement())
-  customerName String?
-  count_guest  Int?
-  createdAt    DateTime @default(now())
-
-  tableId Int
-  table   Tables @relation(fields: [tableId], references: [id])
-
-  day String?
-
-  hour String?
-}
-
-model ContactRequest {
-  id        Int      @id @default(autoincrement())
-  name      String
-  phone     String?
-  email     String?
-  message   String?
-  createdAt DateTime @default(now())
 }
 
 model Blog {

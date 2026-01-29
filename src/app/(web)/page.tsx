@@ -13,13 +13,11 @@ const Page = async () => {
     },
   })
 
-  if (page === null) {
-    return null
-  }
   return (
     <PageStoreProvider
       initialData={{
         initialState: page,
+        halfPage: false,
       }}
     >
       <HomePage />

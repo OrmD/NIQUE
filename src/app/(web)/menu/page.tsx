@@ -2,19 +2,14 @@ import { FC } from 'react'
 import { prisma } from '@g/prisma/prisma-client'
 
 import { MenuPage } from '@/core/pages/menu'
-import { NotFoundPage } from '@/core/pages/not-found'
 import { PageStoreProvider } from '@/core/shared/store/page/page.provider'
 
-interface IPageProps {
-  params: Promise<{ slug: string }>
-}
+interface IPageProps {}
 
-const Page: FC<IPageProps> = async ({ params }) => {
-  const { slug } = await params
-
+const Page: FC<IPageProps> = async ({}) => {
   const page = await prisma.pages.findUnique({
     where: {
-      slug: slug,
+      slug: 'menu',
     },
     include: {
       images: true,
@@ -25,10 +20,10 @@ const Page: FC<IPageProps> = async ({ params }) => {
     <PageStoreProvider
       initialData={{
         initialState: page,
-        halfPage: false,
+        halfPage: true,
       }}
     >
-      {slug === 'menu' ? <MenuPage></MenuPage> : <NotFoundPage />}
+      <MenuPage />
     </PageStoreProvider>
   )
 }
